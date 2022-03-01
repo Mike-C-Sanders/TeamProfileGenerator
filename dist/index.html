@@ -13,7 +13,38 @@
             <h1>My Team</h1>
         </header>
         <main>
-
+            <section class="d-flex">                
+                <div class="col-4 mt-4">
+                    <div class="card ">
+                        <div class="card-header bg-primary bg-gradient text-white">
+                            <h3>Name</h3>
+                            <h4><i class="fa-solid fa-mug-hot"></i> Manager</h4> 
+                            
+                        </div>
+                        <div class="card-body">
+                            <p class="id">ID: 555546</p>
+                            <p class="email">Email: <a href="mailto:${manager.email}">email</a></p>
+                            <p class="office">Office Number: ${manager.officeNumber}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-4">
+                    <div class="card ">
+                        <div class="card-header bg-primary bg-gradient text-white">
+                            <h3>Name</h3>
+                            <h4><i class="fa-solid fa-engine"></i>Engineer</h4> 
+                            
+                        </div>
+                        <div class="card-body">
+                            <p class="id">ID: 555546</p>
+                            <p class="email">Email: <a href="mailto:${manager.email}">email</a></p>
+                            <p class="office">Office Number: ${manager.officeNumber}</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
         </main>
     </body>
+    <script src="https://kit.fontawesome.com/e55a48a2c9.js" crossorigin="anonymous"></script>
 </html>
