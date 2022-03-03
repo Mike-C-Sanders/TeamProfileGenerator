@@ -10,10 +10,10 @@
     </head>
     <body>
         <header>
-            <h1>My Team</h1>
+            <h1 class="text-center">My Team</h1>
         </header>
         <main>
-            <section class="d-flex">                
+            <section class="card-group">                
                 <div class="col-4 mt-4">
                     <div class="card ">
                         <div class="card-header bg-primary bg-gradient text-white">
@@ -31,14 +31,28 @@
                 <div class="col-4 mt-4">
                     <div class="card ">
                         <div class="card-header bg-primary bg-gradient text-white">
-                            <h3>Name</h3>
-                            <h4><i class="fa-solid fa-engine"></i>Engineer</h4> 
+                            <h3 class="card-title">Name</h3>
+                            <h4><i class="fa-solid fa-laptop-code"></i> Engineer</h4> 
                             
                         </div>
                         <div class="card-body">
                             <p class="id">ID: 555546</p>
-                            <p class="email">Email: <a href="mailto:${manager.email}">email</a></p>
-                            <p class="office">Office Number: ${manager.officeNumber}</p>
+                            <p class="email">Email: <a href="mailto:${engineer.email}">email</a></p>
+                            <p class="github">Github: https://github.com/</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mt-4">
+                    <div class="card ">
+                        <div class="card-header bg-primary bg-gradient text-white">
+                            <h3 class="card-title">Name</h3>
+                            <h4><i class="fa-solid fa-graduation-cap"></i> Intern</h4> 
+                            
+                        </div>
+                        <div class="card-body">
+                            <p class="id">ID: 555546</p>
+                            <p class="email">Email: <a href="mailto:${intern.email}">email</a></p>
+                            <p class="school">School: </p>
                         </div>
                     </div>
                 </div>
