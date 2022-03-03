@@ -7,6 +7,7 @@ const Engineer = require('./lib/Engineer');
 const inquirer = require('inquirer');
 const fs = require('fs');
 const { choices } = require('yargs');
+const html = require('./src/html');
 
 //array which will be used to store the team's profile from inquirer prompt.
 const teamProfile = [];
@@ -81,30 +82,25 @@ const internQs = [
     }
 ];
 //function to create a new class instance of manager when called.
-const addManager = () => {
-    return inquirer.prompt(managerQs)
-    .then((answers) => {
-        const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
-
-        teamProfile.push(manager);
-    });
+const addManager = async () => {
+    const answers = await inquirer.prompt(managerQs);
+    const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+    teamProfile.push(manager);
+    menu();
 }
 
-const addEngineer= () => {
-    return inquirer.prompt(engineerQs)
-    .then((answers) => {
-        const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
-
-        teamProfile.push(engineer);
-    })
+const addEngineer= async () => {
+    const answers = await inquirer.prompt(engineerQs);
+    const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+    teamProfile.push(engineer);
+    menu();
 }
 
-const addIntern = () => {
-    return inquirer.prompt(internQs)
-    .then((answers) => {
-        const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
-        teamProfile.push(intern);
-    })
+const addIntern = async () => {
+    const answers = await inquirer.prompt(internQs);
+    const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+    teamProfile.push(intern);
+    menu();
 }
 
 //menu of choices for the user when adding folks to their team
@@ -117,20 +113,23 @@ const menuQs = [
     }
 ];
 
-const menu = () => {
-    return inquirer.prompt(menuQs)
-    .then((answers) => {
-        //user wants to add an engineer to their team
-        if(answers.choices === 'Add an Engineer'){
-            addEngineer();
-        }
-        //user wants to add an intern to their team
-        else if(answers.choices === 'Add an Intern'){
-            addIntern();
-        }
-        //user was done building call the write to HTML file function
-        else{
-            return;
-        }
-    })
+const menu = async () => {
+    const answers = await inquirer.prompt(menuQs);
+    //user wants to add an engineer to their team
+    if (answers.choices === 'Add an Engineer') {
+        addEngineer();
+    }
+
+    //user wants to add an intern to their team
+    else if (answers.choices === 'Add an Intern') {
+        addIntern();
+    }
+
+    //user was done building call the write to HTML file function
+    else {
+        return;
+    }
 }
+
+//first inquirer function to be called. 
+addManager();
