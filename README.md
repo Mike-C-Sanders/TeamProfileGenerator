@@ -49,7 +49,7 @@ Make sure you've downloaded NODEJS and the required npm modules. For more detail
 
 ![gif](./img/video.gif)
 
-Full YOUTUBE Walk Through ![youtube](https://www.youtube.com/watch?v=zZUXFX8LYDQ)
+Full YOUTUBE Walk Through <https://www.youtube.com/watch?v=zZUXFX8LYDQ>
 
 ## Resources
 
