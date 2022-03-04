@@ -17,4 +17,6 @@ test('creates a new employee object with a name, id, and email', () =>{
 
     //testing the get role function
     expect(newEmployee.getRole()).toBe('Employee');
+
+    expect(newEmployee.getID()).toEqual(expect.any(Number));
 });
