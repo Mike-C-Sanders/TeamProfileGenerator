@@ -8,6 +8,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const { choices } = require('yargs');
 const html = require('./src/html');
+const createHTML = require('./src/html');
 
 //array which will be used to store the team's profile from inquirer prompt.
 const teamProfile = [];
@@ -127,17 +128,19 @@ const menu = () => {
     return inquirer.prompt(menuQs)
     .then((answers) => {
         //user wants to add an engineer to their team
-        if(answers.choices === 'Add an Engineer'){
+        if(answers.choice === 'Add an Engineer'){
             addEngineer();
         }
         //user wants to add an intern to their team
-        else if(answers.choices === 'Add an Intern'){
+        else if(answers.choice === 'Add an Intern'){
             addIntern();
         }
         //user was done building call the write to HTML file function
         else{
-            fs.writeFileSync('./src/html.js', createHTML(teamProfile));
+            fs.writeFile('./dist/index.html', createHTML(teamProfile));
         }
     })
 }
 
+//primary function to kick off inquirer
+addManager();

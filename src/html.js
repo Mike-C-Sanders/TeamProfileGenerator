@@ -59,13 +59,13 @@ const loopCreate = (teamProfileArray) =>{
     //loop through the answers from team profile and add those to the array as strings
     for(let i = 0; i < teamProfileArray.length; i++){
         if(i === 0){
-            profileHTML[i] = addManagerCard(teamProfileArray[0]);
+            profileHTML.push(addManagerCard(teamProfileArray[0]));
         }
         else if(teamProfileArray[i].getRole() === 'Engineer'){
-            profileHTML[i] = addEngineerCard(teamProfileArray[i]);
+            profileHTML.push(addEngineerCard(teamProfileArray[i]));
         }
         else if(teamProfileArray[i].getRole() === 'Intern'){
-            profileHTML[i] = addInternCard(teamProfileArray[i]);
+            profileHTML.push(addInternCard(teamProfileArray[i]));
         }
     }
 
@@ -98,3 +98,5 @@ const createHTML = (teamProfileArray) => {
         <script src="https://kit.fontawesome.com/e55a48a2c9.js" crossorigin="anonymous"></script>
     </html>`
 }
+
+module.exports = createHTML;
