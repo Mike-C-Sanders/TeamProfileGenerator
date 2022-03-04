@@ -53,7 +53,7 @@ const addInternCard = (intern) =>{
 }
 
 //function to loop through the array of profiles created and add them to the html text.
-const loopCreate = (teamProfileArray) =>{
+const createHTML = (teamProfileArray) =>{
     //initialize a string to be returned once finished looping
     const profileHTML = [];
     //loop through the answers from team profile and add those to the array as strings
@@ -70,11 +70,11 @@ const loopCreate = (teamProfileArray) =>{
     }
 
     //join and return final string from the results above.
-    return profileHTML.join('');
+    return generateTeam(profileHTML.join(''));
 }
 //create the text for the HTML file written in the index.js main file. array passed in is the team profile gathered using inquirer
-const createHTML = (teamProfileArray) => {
-    `<!DOCTYPE html>
+const generateTeam = (teamProfile) => {
+    return `<!DOCTYPE html>
     <html lang="en">
         <head>
             <meta charset="UTF-8">
@@ -90,7 +90,7 @@ const createHTML = (teamProfileArray) => {
             </header>
             <main>
                 <section class="card-group">                
-                    ${loopCreate(teamProfileArray)}
+                    ${teamProfile}
                 </section>
                 
             </main>

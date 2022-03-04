@@ -137,7 +137,7 @@ const menu = () => {
         }
         //user was done building call the write to HTML file function
         else{
-            fs.writeFile('./dist/index.html', createHTML(teamProfile));
+            fs.writeFileSync('./dist/index.html', createHTML(teamProfile));
         }
     })
 }
